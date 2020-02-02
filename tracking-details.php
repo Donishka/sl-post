@@ -36,7 +36,7 @@
 <?php
 if (isset($_POST['submit'])) {
   print("
-  <p style='margin-top: 0;color: white'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Initial Post Office &emsp;&emsp;&emsp;&emsp;&emsp;Current Post Office&emsp;&emsp;&emsp;&emsp;&emsp;Received Date </p>
+  <p style='margin-top: 0;color: white'>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Parcel ID &emsp;&emsp;&emsp;&emsp;&emsp;Current Post Office&emsp;&emsp;&emsp;&emsp;&emsp;Received Date </p>
   
   ");
 }
@@ -69,14 +69,14 @@ if (isset($_POST['submit'])) {
               $pcode = $_POST['pcode'];
               
                 $showf = "
-                    SELECT * FROM package 
-                    WHERE Package_code = '$pcode'  
+                    SELECT * FROM trackingpathdetal 
+                    WHERE tracking_id = '$pcode'  
           
                       ";
           $result = $connect -> query($showf);
           $row=mysqli_fetch_assoc($result);
           print("
-             <p>".$row['Initial_PO']."&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;".$row['Current_PO']."&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;".$row['Date']."</p>
+             <p>".$row['parcel_id']."&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;".$row['current_po']."&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;".$row['check_date']."</p>
                               ");
                 
           
